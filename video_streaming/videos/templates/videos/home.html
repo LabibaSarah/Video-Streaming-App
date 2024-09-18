@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home</title>
+</head>
+<body>
+    <h1>Welcome to the Video Streaming App</h1>
+    <form method="get" action="">
+        <input type="text" name="q" placeholder="Search for videos">
+        <button type="submit">Search</button>
+    </form>
+    <h2>Available Videos</h2>
+    <ul>
+        {% for video in videos %}
+            <li><a href="{% url 'video_detail' video.id %}">{{ video.title }}</a></li>
+        {% empty %}
+            <li>No videos available.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
